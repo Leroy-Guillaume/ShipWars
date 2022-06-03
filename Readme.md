@@ -7,7 +7,7 @@ Par Aurélien Rogé, Guillaume Leroy, Marco Fordelone, Théophile Demeulier et T
 
 Étape 1: Télécharger/cloner.
 ```
-git clone https://github.com/AurelienRoge/ShipWars
+git clone https://github.com/Leroy-Guillaume/ShipWars.git
 ```
 Étape 2: Installer les dependances.
 ```
