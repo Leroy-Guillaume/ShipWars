@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Projet de techno Web CIR2 par Aurélien Rogé, Guillaume Leroy, Marco Fordelone, Théophile Demeulier et Théo Vangheluwe">
+    <title>Ship Wars</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="../public/img/favicon.ico" type="image/ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../public/css/inscription.css">
+    <link rel="stylesheet" href="../public/css/main.css">
+    <link rel="stylesheet" href="../public/css/header.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
+    <link rel="stylesheet" href="../public/css/home.css">
+    <link rel="stylesheet" href="../public/css/main.css">
+    <link rel="stylesheet" href="../public/css/hover.css">
+    <link rel="stylesheet" href="../public/css/play.css">
+
+    <link rel="stylesheet" href="../public/css/util.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="../vendor/animate/animate.css">
+    <link rel="stylesheet" href="../vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="../vendor/perfect-scrollbar/perfect-scrollbar.css">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+
+    <!-- PT serif -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- FONTAWESOME LIB -->
+    <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
+
+    <!-- AOS LIB -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body class="backgroundplay">
+
+    <header class="header-container">
+        <nav class="navbar-container navbar-band">
+            <nav class="navbar-container navbar-band">
+                <a href="index.html"><img class="logo" src="../public/img/logo.png" alt="Logo"></a>
+                <a class="hvr-grow hvr-underline-from-center" href="index.html"><i class="fas fa-home"></i>HOME</a>
+                <a class="hvr-grow hvr-underline-from-center" href="play.html"><i class="fa fa-fire"
+                        aria-hidden="true"></i>PLAY</a>
+                <a class="hvr-grow hvr-underline-from-center" href="leaderboard.html"><i class="fas fa-trophy"
+                        aria-hidden="true"></i>LEADERBOARD</a>
+                <a class="hvr-grow hvr-underline-from-center" href="inscription.html"><i aria-hidden="true"></i>LOG
+                    IN</a>
+            </nav>
+        </nav>
+    </header>
+
+    <!-- Déconnecté du serveur -->
+    <div id="disconnected">
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4 text-center">
+                <div class="alert alert-danger">
+                    <p>Not connected to server.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- File d'attente -->
+    <div id="waiting-room" style="display:none;">
+        <div class="row2">
+            <div class="col-sm-4 col-sm-offset-4 text-center">
+                <div class="panel panel-primary1">
+                    <div class="cadre">
+                        <div class="panel-heading-waiting">Waiting Room</div>
+                        <div class="panel-body">
+                            <p>You are connected to the server.</p>
+                            <p>Waiting for another player...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="game" style="display:none;">
+        <div class="ttitre">
+            <div class="panel-heading">Battleship Game #<span id="game-number"></span></div>
+        </div>
+        <div class="row1">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+
+                    <div class="panel-body">
+
+                        <!-- Grilles des joueurs -->
+                        <div id="divTwoTabs">
+                            <div id="tab1">
+                                <table id="gametablePlayer0">
+                                    <h3 class="Adv">You</h3>
+
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="weaponSelectionBtn">
+                                <button class="weaponBtn"><img class="Missile" src="../public/img/missile.png"></button>
+                                <button class="weaponBtn"><img class="Radar" src="../public/img/radar.png"></button>
+                                <button class="weaponBtn"><img class="Torpille"
+                                        src="../public/img/torpille.png"></button>
+                                <button class="weaponBtn"><img class="Bombe" src="../public/img/bombe.png"></button>
+                            </div>
+                            <div id="tab2">
+                                <table id="gametablePlayer1">
+                                    <h3 class="Adv">Opponent</h3>
+
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                    <tr class="tablerow">
+
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                        <td class="gametile"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <ul class="list-group">
+                    <!-- Status -->
+                    <li id="turn-status"></li>
+                    <!-- Sélection d'arme -->
+
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <footer class="footerb">
+        <p>© Ship Wars, All rights reserved, by Aurélien R, Guillaume L, Marco F, Théo V and Théophile D</p>
+    </footer>
+
+    <script src="../public/js/front/ShipWarsView.js"></script>
+    <script src="../public/js/front/client.js"></script>
+</body>
+
+</html>

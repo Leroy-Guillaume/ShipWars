@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projet de techno Web CIR2 par Aurélien Rogé, Guillaume Leroy, Marco Fordelone, Théophile Demeulier et Théo Vangheluwe">
+    <title>Ship Wars</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="../public/img/favicon.ico" type="image/ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../public/css/inscription.css">
+    <link rel="stylesheet" href="../public/css/main.css">
+    <link rel="stylesheet" href="../public/css/header.css">
+    <link rel="stylesheet" href="../public/css/footer.css">
+    <link rel="stylesheet" href="../public/css/home.css">
+    <link rel="stylesheet" href="../public/css/main.css">
+    <link rel="stylesheet" href="../public/css/hover.css">
+    <link rel="stylesheet" href="../public/css/leaderboard.css">
+
+    <link rel="stylesheet" href="../public/css/util.css">
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="../vendor/animate/animate.css">
+    <link rel="stylesheet" href="../vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="../vendor/perfect-scrollbar/perfect-scrollbar.css">
+
+    <!-- PT serif -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- FONTAWESOME LIB -->
+    <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
+
+    <!-- AOS LIB -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    
+
+</head>
+
+<body class="backgroundleaderboard">
+
+    <header class="header-container">
+        <nav class="navbar-container navbar-band">
+            <nav class="navbar-container navbar-band">
+                <a href="index.html"><img class="logo" src="../public/img/logo.png" alt="Logo"></a>
+                <a class="hvr-grow hvr-underline-from-center" href="index.html"><i class="fas fa-home"></i>HOME</a>
+                <a class="hvr-grow hvr-underline-from-center" href="play.html"><i class="fa fa-fire"
+                        aria-hidden="true"></i>PLAY</a>
+                <a class="hvr-grow hvr-underline-from-center" href="leaderboard.html"><i class="fas fa-trophy"
+                        aria-hidden="true"></i>LEADERBOARD</a>
+                <a class="hvr-grow hvr-underline-from-center" href="inscription.html"><i
+                        aria-hidden="true"></i>LOG IN</a>
+            </nav>
+        </nav>
+    </header>
+
+    <main>
+        <section class="leaderboard-section">
+            <h1 class="h1-title">Leaderboard</h1>
+            <hr class="line">
+            <div class="limiter">
+                <div class="container-table100">
+                    <div class="wrap-table100">
+                        <div class="table100">
+                            <table>
+                                <thead>
+                                    <tr class="table100-head">
+                                        <th class="column1">Username</th>
+                                        <th class="column2">Score</th>
+                                        <th class="column3">Rank</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        
+                                        <td>
+                                            <%= top_1 %>
+                                        </td>
+                                        <td>
+                                            <%= S_1 %>
+                                        </td>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        
+                                        <td>
+                                            <%= top_2 %>
+                                        </td>
+                                        <td>
+                                            <%= S_2 %>
+                                        </td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        
+                                        <td>
+                                            <%= top_3 %>
+                                        </td>
+                                        <td>
+                                            <%= S_3 %>
+                                        </td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        
+                                        <td>
+                                            <%= top_4 %>
+                                        </td>
+                                        <td>
+                                            <%= S_4 %>
+                                        </td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        
+                                        <td>
+                                            <%= top_5 %>
+                                        </td>
+                                        <td>
+                                            <%= S_5 %>
+                                        </td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr>
+                                        
+                                        <td>
+                                            <%= top_6 %>
+                                        </td>
+                                        <td>
+                                            <%= S_6 %>
+                                        </td>
+                                        <td>6</td>
+                                    </tr>
+                                    <tr>
+                                        
+                                        <td>
+                                            <%= top_7 %>
+                                        </td>
+                                        <td>
+                                            <%= S_7 %>
+                                        </td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                       
+                                        <td>
+                                            <%= top_8 %>
+                                        </td>
+                                        <td>
+                                            <%= S_8 %>
+                                        </td>
+                                        <td>8</td>
+                                    </tr>
+                                    <tr>
+                                        
+                                        <td>
+                                            <%= top_9 %>
+                                        </td>
+                                        <td>
+                                            <%= S_9 %>
+                                        </td>
+                                        <td>9</td>
+                                    </tr>
+                                    <tr>
+                                        
+                                        <td>
+                                            <%= top_10 %>
+                                        </td>
+                                        <td>
+                                            <%= S_10 %>
+                                        </td>
+                                        <td>10</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© Ship Wars, All rights reserved, by Aurélien R, Guillaume L, Marco F, Théo V and Théophile D</p>
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+
+    <!-- Table -->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/select2/select2.min.js"></script>
+
+</body>
+
+</html>

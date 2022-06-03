@@ -1,0 +1,105 @@
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projet de techno Web CIR2 par Aurélien Rogé, Guillaume Leroy, Marco Fordelone, Théophile Demeulier et Théo Vangheluwe">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Ship Wars</title>
+
+  <!-- FAVICON -->
+  <link rel="icon" href="../public/img/favicon.ico" type="image/ico">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../public/css/inscription.css">
+  <link rel="stylesheet" href="../public/css/main.css">
+  <link rel="stylesheet" href="../public/css/header.css">
+  <link rel="stylesheet" href="../public/css/footer.css">
+  <link rel="stylesheet" href="../public/css/home.css">
+  <link rel="stylesheet" href="../public/css/main.css">
+  <link rel="stylesheet" href="../public/css/hover.css">
+  <link rel="stylesheet" href="../public/css/leaderboard.css">
+
+
+  <!-- JS -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"> </script>
+  <script src="../public/js/front/inscription.js" defer></script>
+
+  <!-- PT serif -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- FONTAWESOME LIB -->
+  <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
+
+  <!-- AOS LIB -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body class="backgroundimage">
+  <header class="header-container">
+    <nav class="navbar-container navbar-band">
+      <nav class="navbar-container navbar-band">
+        <a href="index.html"><img class="logo" src="../public/img/logo.png" alt="Logo"></a>
+        <a class="hvr-grow hvr-underline-from-center" href="index.html"><i class="fas fa-home"></i>HOME</a>
+        <a class="hvr-grow hvr-underline-from-center" href="play.html"><i class="fa fa-fire"
+            aria-hidden="true"></i>PLAY</a>
+        <a class="hvr-grow hvr-underline-from-center" href="leaderboard.html"><i class="fas fa-trophy"
+            aria-hidden="true"></i>LEADERBOARD</a>
+        <a class="hvr-grow hvr-underline-from-center" href="inscription.html"><i aria-hidden="true"></i>LOG IN</a>
+      </nav>
+    </nav>
+  </header>
+  <div class="main-inscription">
+    <div class="container">
+      <div class="logoUtilisateur">
+        <i class="fas fa-user"></i>
+      </div>
+
+      <div class="tab-body" data-id="connexion">
+        <form id="loginForm" action="">
+          <div class="row">
+            <i class="far fa-user"></i>
+            <input id="username" autocomplete="off" placeholder="Username" class="input" />
+          </div>
+          <div class="row">
+            <i class="fas fa-lock"></i>
+            <input id="password" autocomplete="off" placeholder="Password" class="input" />
+          </div>
+          <input type="submit" value="Login !" class="btn" />
+        </form>
+      </div>
+
+      <div class="tab-body" data-id="inscription">
+        <form id="registerForm">
+          <div class="row">
+            <i class="far fa-user"></i>
+            <input id="Rusername" autocomplete="off" placeholder="Username" class="input">
+          </div>
+          <div class="row">
+            <i class="fas fa-lock"></i>
+            <input id="Rpassword" autocomplete="off" placeholder="Password" class="input">
+          </div>
+          <div class="row">
+            <i class="fas fa-lock"></i>
+            <input id="Rpassword2" autocomplete="off" placeholder="Confirmation Password" class="input">
+          </div>
+          <input type="submit" value="Sign-up !" class="btn" />
+        </form>
+      </div>
+
+      <div class="tab-footer">
+        <a class="tab-link active" data-ref="connexion" href="javascript:void(0)">Log in</a>
+        <a class="tab-link" data-ref="inscription" href="javascript:void(0)">Sign up</a>
+      </div>
+    </div>
+  </div>
+  <footer class="footerb">
+    <p>© Ship Wars, All rights reserved, by Aurélien R, Guillaume L, Marco F, Théo V and Théophile D</p>
+</footer>
+</body>
+<!--posez pas question c'est ici c'est tout-->
+<script src="../public/js/back/logger.js"></script>
+<script src="../public/js/front/login.js"></script>
+</html>
